@@ -7,7 +7,7 @@ import { Projects } from './Project';
 //   todayTask,
 //   filterByProject,
 //   searchBar,
-// } from './filter_todo';
+// } from './Filter_todo';
 const d = document;
 let editing = false;
 class UI {
@@ -34,7 +34,7 @@ class UI {
     card.classList.add('card', item._priority);
     taskContainer.appendChild(card);
     this.removeForm();
-    if (editing) d.querySelector('.card.editing').remove();
+    if (editing) d.querySelector('.card').remove();
     editing = false;
     if (!taskContainer.hasChildNodes()) {
       container.classList.remove('hide-bg');
@@ -208,7 +208,7 @@ class UI {
 
   editTask(id) {
     this.removeForm();
-    id.classList.add('editing');
+    // id.classList.add('editing');
     editing = true;
     this.goToHome();
     this.createForm();
@@ -308,8 +308,8 @@ const DOM_EVENTS = () => {
     if (e.target.matches('.cancelTaskFormBtn')) {
       e.preventDefault();
       if (editing) {
-        d.querySelector('.card.editing').style.display = 'flex';
-        d.querySelector('.card.editing').classList.remove('editing');
+        d.querySelector('.card').style.display = 'flex';
+        d.querySelector('.card').classList.remove('editing');
       }
       ui.removeForm();
     }
