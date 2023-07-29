@@ -1,13 +1,13 @@
 import { Task } from './Task';
 import { Projects } from './Project';
 //import {saveTaskToLocalStorage, clearLocalStorage} from './local_storage'
-// import {
-//   thisWeek,
-//   showAll,
-//   todayTask,
-//   filterByProject,
-//   searchBar,
-// } from './Filter_todo';
+import {
+  thisWeek,
+  showAll,
+  todayTask,
+  filterByProject,
+  searchBar,
+} from './Filter_todo';
 const d = document;
 let editing = false;
 class UI {
@@ -34,7 +34,7 @@ class UI {
     card.classList.add('card', item._priority);
     taskContainer.appendChild(card);
     this.removeForm();
-    if (editing) d.querySelector('.card').remove();
+    if (editing) d.querySelector('.card.editing').remove();
     editing = false;
     if (!taskContainer.hasChildNodes()) {
       container.classList.remove('hide-bg');
@@ -68,6 +68,7 @@ class UI {
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
+                <option value="crazy">Crazy</option>
             </select>
             <button class="btn addTaskFormBtn" id="addTaskFormBtn">add</button>
             <button class="btn cancelTaskFormBtn" id="cancelTaskFormBtn">cancel</button>
@@ -208,7 +209,7 @@ class UI {
 
   editTask(id) {
     this.removeForm();
-    // id.classList.add('editing');
+    id.classList.add('editing');
     editing = true;
     this.goToHome();
     this.createForm();
@@ -308,8 +309,8 @@ const DOM_EVENTS = () => {
     if (e.target.matches('.cancelTaskFormBtn')) {
       e.preventDefault();
       if (editing) {
-        d.querySelector('.card').style.display = 'flex';
-        d.querySelector('.card').classList.remove('editing');
+        d.querySelector('.card.editing').style.display = 'flex';
+        d.querySelector('.card.editing').classList.remove('editing');
       }
       ui.removeForm();
     }
