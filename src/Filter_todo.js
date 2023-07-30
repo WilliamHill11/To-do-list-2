@@ -28,7 +28,9 @@ const todayTask = () => {
 
 const showAll = () => {
   const tasks = document.querySelectorAll('#cards .card');
-  Array.from(tasks).forEach((task) => (task.style.display = 'flex'));
+  Array.from(tasks).forEach((task) => {
+    task.style.display = 'flex';
+  });
 };
 
 const filterByProject = (target) => {

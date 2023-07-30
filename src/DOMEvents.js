@@ -282,9 +282,11 @@ const DOM_EVENTS = () => {
       ui.removeTaskFormBtn();
       thisWeek();
     }
+
     if (e.target.matches('#inbox')) {
       ui.goToHome();
     }
+
     if (e.target.matches('#today')) {
       ui.changeActive(e.target);
       ui.changeSectionTitle('Today Tasks');
@@ -332,7 +334,9 @@ const DOM_EVENTS = () => {
     if (e.target.matches('.btn-edit')) {
       ui.editTask(e.target.parentElement.parentElement);
     }
+
     if (e.target.matches('.check-btn')) {
+      console.log(e.target);
       if (e.target.children[0].classList.contains('fa-circle')) {
         e.target.children[0].classList.replace('fa-circle', 'fa-check-circle');
         e.target.parentElement.parentElement.classList.add('checked');
