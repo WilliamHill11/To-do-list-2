@@ -298,6 +298,7 @@ const DOM_EVENTS = () => {
       ui.changeActive(e.target);
       ui.changeSectionTitle(e.target.textContent);
       filterByProject(e.target);
+      console.log(e.target);
       ui.removeForm();
       ui.removeTaskFormBtn();
     }

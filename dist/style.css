@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --main-color: lightcoral;
+  --main-color: rgb(245, 112, 141);
   --dark-gray: #e5e5e5;
   --light-gray: #f8f8f8;
 }
